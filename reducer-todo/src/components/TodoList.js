@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useReducer } from "react";
+import { initialState, reducer } from "../reducers/reducer";
 import Todo from "./Todo";
 
 const TodoList = () => {

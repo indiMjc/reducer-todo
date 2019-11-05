@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState, useReducer } from "react";
+import { initialState, reducer } from "../reducers/reducer";
 
 const TodoForm = () => {
+	const [todo, setTodo] = useState("");
+
+	const handleChanges = e => {
+		setTodo(e.target.value);
+	};
 	return (
 		<div className="form-contain">
 			<form>
 				<input
-					// onChange={props.changeTodo}
+					onChange={handleChanges}
 					type="text"
 					name="todo"
 					// value={props.value}
