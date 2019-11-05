@@ -4,8 +4,15 @@ import { initialState, reducer } from "../reducers/reducer";
 const TodoForm = () => {
 	const [todo, setTodo] = useState("");
 
+	const [state, dispatch] = useReducer(reducer, initialState);
+
 	const handleChanges = e => {
 		setTodo(e.target.value);
+	};
+
+	const handleSubmit = e => {
+		e.preventDefault();
+		dispatch({ type: "ADD_TODO", payload: todo });
 	};
 	return (
 		<div className="form-contain">
@@ -14,8 +21,8 @@ const TodoForm = () => {
 					onChange={handleChanges}
 					type="text"
 					name="todo"
-					// value={props.value}
-					placeholder="Enter todo item"
+					placeholder="Add todo :D"
+					value={todo}
 				/>
 				<button className="submit-btn" /*onClick={props.addTodo}*/>
 					Submit
