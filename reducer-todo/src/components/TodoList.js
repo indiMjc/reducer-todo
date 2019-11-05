@@ -4,7 +4,6 @@ import { initialState } from "../reducers/reducer";
 
 const TodoList = () => {
 	const [list] = useState(initialState);
-	console.log("console.log output: TodoList -> list", list);
 	return (
 		<>
 			{list.map(todo => (

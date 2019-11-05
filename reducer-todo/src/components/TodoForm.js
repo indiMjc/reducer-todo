@@ -5,6 +5,7 @@ const TodoForm = () => {
 	const [todo, setTodo] = useState("");
 
 	const [state, dispatch] = useReducer(reducer, initialState);
+	console.log("console.log output: TodoForm -> state", state);
 
 	const handleChanges = e => {
 		setTodo(e.target.value);
@@ -24,7 +25,7 @@ const TodoForm = () => {
 					placeholder="Add todo :D"
 					value={todo}
 				/>
-				<button className="submit-btn" /*onClick={props.addTodo}*/>
+				<button className="submit-btn" onClick={handleSubmit}>
 					Submit
 				</button>
 				<button className="clear-btn" /*onClick={props.clearComplete}*/>
