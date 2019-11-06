@@ -7,6 +7,7 @@ export const initialState = [
 ];
 
 export const reducer = (state, action) => {
+	console.log('REDUCER', state);
 	switch (action.type) {
 		case "ADD_TODO":
 			console.log(action.payload);
@@ -19,14 +20,13 @@ export const reducer = (state, action) => {
 				}
 			];
 		case "TOGGLE_COMPLETED":
-			console.log(state);
+			//console.log(state);
 			const newState = state.map(todo => {
-				// console.log(action.payload, todo);
-
+				console.log(action.payload, todo.id)
 				if (action.payload === todo.id) {
-					todo.completed = !todo.completed;
-					// console.log("changed todo", todo);
-					return todo;
+					console.log(todo)
+					console.log("CHANGE", { ...todo, completed: !todo.completed });
+					return { ...todo, completed: !todo.completed };
 				}
 				// console.log("todo", todo);
 				return todo;

@@ -18,7 +18,7 @@ const TodoForm = () => {
 	};
 	return (
 		<div className="form-contain">
-			<TodoList state={state} />
+			<TodoList state={state} dispatch={dispatch}/>
 			<form>
 				<input
 					onChange={handleChanges}
