@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import Todo from "./Todo";
-import { initialState } from "../reducers/reducer";
 
-const TodoList = () => {
-	const [list] = useState(initialState);
+const TodoList = props => {
+	console.log("console.log output: props", props.state);
 	return (
 		<>
-			{list.map(todo => (
-				<Todo key={todo.id} todo={todo} />
+			{props.state.map(todo => (
+				<Todo key={todo.id} todo={todo} id={todo.id} />
 			))}
 		</>
 	);

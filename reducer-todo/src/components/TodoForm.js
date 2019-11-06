@@ -1,11 +1,11 @@
 import React, { useState, useReducer } from "react";
 import { initialState, reducer } from "../reducers/reducer";
+import TodoList from "./TodoList";
 
 const TodoForm = () => {
 	const [todo, setTodo] = useState("");
 
 	const [state, dispatch] = useReducer(reducer, initialState);
-	console.log("console.log output: TodoForm -> state", state);
 
 	const handleChanges = e => {
 		setTodo(e.target.value);
@@ -17,6 +17,7 @@ const TodoForm = () => {
 	};
 	return (
 		<div className="form-contain">
+			<TodoList state={state} />
 			<form>
 				<input
 					onChange={handleChanges}
