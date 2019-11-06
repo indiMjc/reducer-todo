@@ -1,10 +1,6 @@
-import React, { useReducer } from "react";
-import { initialState, reducer } from "../reducers/reducer";
+import React from "react";
 
 const Todo = props => {
-	// console.log("console.log output: props", props);
-	// const [state, dispatch] = useReducer(reducer, initialState);
-
 	const toggleComplete = () => {
 		props.dispatch({ type: "TOGGLE_COMPLETED", payload: props.id });
 	};
