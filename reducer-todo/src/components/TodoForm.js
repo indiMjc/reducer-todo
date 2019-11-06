@@ -16,9 +16,10 @@ const TodoForm = () => {
 		e.preventDefault();
 		dispatch({ type: "ADD_TODO", payload: todo });
 	};
+
 	return (
 		<div className="form-contain">
-			<TodoList state={state} />
+			<TodoList state={state} dispatch={dispatch} />
 			<form>
 				<input
 					onChange={handleChanges}
@@ -30,9 +31,9 @@ const TodoForm = () => {
 				<button className="submit-btn" onClick={handleSubmit}>
 					Submit
 				</button>
-				<button className="clear-btn" /*onClick={props.clearComplete}*/>
+				{/* <button className="clear-btn" onClick={handleClearComplete}>
 					Clear completed items
-				</button>
+				</button> */}
 			</form>
 		</div>
 	);

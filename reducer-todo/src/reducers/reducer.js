@@ -16,15 +16,15 @@ export const reducer = (state, action) => {
 			};
 			return [newTodo, ...state];
 		case "TOGGLE_COMPLETED":
-			const newState = state.map(todo => {
-				if (action.payload === todo.id) {
-					todo.completed = !todo.completed;
+			return state.map(todo => {
+				if (todo.id === action.payload) {
+					return { ...todo, completed: !todo.completed };
+				} else {
 					return todo;
 				}
-				return todo;
 			});
-			console.log(newState);
-			return newState;
+		case "CLEAR_COMPLETED":
+			return state.filter(todo => !todo.completed);
 		default:
 			return state;
 	}

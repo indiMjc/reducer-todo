@@ -3,10 +3,14 @@ import { initialState, reducer } from "../reducers/reducer";
 
 const Todo = props => {
 	// console.log("console.log output: props", props);
-	const [state, dispatch] = useReducer(reducer, initialState);
+	// const [state, dispatch] = useReducer(reducer, initialState);
 
 	const toggleComplete = () => {
-		dispatch({ type: "TOGGLE_COMPLETED", payload: props.id });
+		props.dispatch({ type: "TOGGLE_COMPLETED", payload: props.id });
+	};
+	const handleClearComplete = e => {
+		e.preventDefault();
+		props.dispatch({ type: "CLEAR_COMPLETED", payload: props.id });
 	};
 	return (
 		<div
@@ -16,6 +20,9 @@ const Todo = props => {
 			onClick={toggleComplete}
 		>
 			{props.todo.item}
+			{props.todo.completed ? (
+				<button onClick={handleClearComplete}>X</button>
+			) : null}
 		</div>
 	);
 };
