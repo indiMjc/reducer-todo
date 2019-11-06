@@ -6,6 +6,7 @@ const TodoForm = () => {
 	const [todo, setTodo] = useState("");
 
 	const [state, dispatch] = useReducer(reducer, initialState);
+	// console.log("console.log output: TodoForm -> state", state);
 
 	const handleChanges = e => {
 		setTodo(e.target.value);
